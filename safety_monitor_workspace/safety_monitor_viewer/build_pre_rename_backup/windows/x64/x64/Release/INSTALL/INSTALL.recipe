@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\flutter\x64\Release\flutter_assemble</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\plugins\desktop_multi_window\Release\desktop_multi_window_plugin.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\plugins\file_selector_windows\Release\file_selector_windows_plugin.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\plugins\media_kit_libs_windows_video\Release\media_kit_libs_windows_video_plugin.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\plugins\media_kit_video\Release\media_kit_video_plugin.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\runner\Release\safety_ai_monitor_ui.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\x64\Release\ALL_BUILD</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\x64\Release\INSTALL</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

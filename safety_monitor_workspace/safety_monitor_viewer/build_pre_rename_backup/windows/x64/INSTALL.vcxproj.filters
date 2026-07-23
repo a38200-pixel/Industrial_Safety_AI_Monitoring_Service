@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\CMakeFiles\c5afff65e4639b43986ace5b82956d4b\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E0177464-0949-38F5-8F5E-BBD942BE1205}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

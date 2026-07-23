@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\user\Desktop\hiyoung_team_github\safety_monitor_workspace\safety_ai_monitor_ui\build\windows\x64\plugins\media_kit_libs_windows_video\x64\Release\media_kit_libs_windows_video_LIBMPV_EXTRACT</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
