@@ -4,10 +4,8 @@
 
 ### YOLO 기반 엣지 추론과 중앙 이벤트 판정을 결합한 실시간 산업 안전 모니터링 시스템
 
-<!-- 초기 구현 화면 이미지 경로를 확인한 뒤 아래 주석을 해제하세요. -->
-<!--
-<img src="docs/초기_구현화면.png" alt="Industrial Safety AI Monitoring Service 초기 구현 화면" width="88%" />
--->
+<img src="docs/images/initial-expected-ui.png" alt="Industrial Safety AI Monitoring Service 초기 구현 화면" width="88%" />
+
 
 </div>
 
