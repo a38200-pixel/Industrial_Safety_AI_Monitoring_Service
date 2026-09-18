@@ -1,10 +1,34 @@
+<div align="center">
+
 # Industrial Safety AI Monitoring Service
 
-> YOLO 기반 엣지 추론과 중앙 이벤트 판정을 결합한 실시간 산업 안전 모니터링 시스템
+### YOLO 기반 엣지 추론과 중앙 이벤트 판정을 결합한 실시간 산업 안전 모니터링 시스템
+
+<!-- 초기 구현 화면 이미지 경로를 확인한 뒤 아래 주석을 해제하세요. -->
+<!--
+<img src="docs/초기_구현화면.png" alt="Industrial Safety AI Monitoring Service 초기 구현 화면" width="88%" />
+-->
+
+</div>
 
 산업 현장의 CCTV·웹캠 영상에서 **작업자, 안전모 착용, 안전모 미착용**을 탐지하고, 안전모 미착용 및 위험구역 침입 이벤트를 관제 화면에 기록하는 팀 프로젝트입니다.
 
 단순히 모델을 학습하는 데서 끝내지 않고, 카메라가 연결된 PC에서 추론한 결과를 중앙 서버로 전송하고 서버가 현장별 룰을 적용한 뒤 이벤트 로그·썸네일·영상 클립으로 남기는 전체 파이프라인을 구현했습니다.
+
+---
+
+## 기술 스택
+
+| 영역 | 기술 |
+| --- | --- |
+| AI / Computer Vision | YOLO26, Ultralytics, PyTorch, ONNX, TensorRT 11, OpenCV |
+| Backend | Python 3.12, FastAPI, Pydantic, Uvicorn |
+| Realtime / Network | REST API, WebSocket, MJPEG Stream |
+| Database / Storage | SQLite, JSON payload, MP4, JPG |
+| Desktop UI | Flutter, Dart, media_kit |
+| Target Environment | Windows 10/11, NVIDIA GPU, CUDA |
+
+---
 
 ## 프로젝트 핵심 성과
 
@@ -156,16 +180,6 @@ Batch32 AdamW는 특정 단일 지표의 최고값이 아니라, Recall과 F1-sc
 - 이벤트별 카메라·시간 필터와 영상 재생
 - 카메라 표시 이름, 룰 활성화 여부, ROI 중앙 관리
 
-## 기술 스택
-
-| 영역 | 기술 |
-| --- | --- |
-| AI / Computer Vision | YOLO26, Ultralytics, PyTorch, ONNX, TensorRT 11, OpenCV |
-| Backend | Python 3.12, FastAPI, Pydantic, Uvicorn |
-| Realtime / Network | REST API, WebSocket, MJPEG Stream |
-| Database / Storage | SQLite, JSON payload, MP4, JPG |
-| Desktop UI | Flutter, Dart, media_kit |
-| Target Environment | Windows 10/11, NVIDIA GPU, CUDA |
 
 ## 프로젝트 구조
 
