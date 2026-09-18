@@ -65,7 +65,7 @@
 
 상세한 실험 배경과 결과는 [YOLO26 CCTV 안전이벤트 탐지 프로젝트 연구보고서](YOLO26_CCTV_안전이벤트_탐지_프로젝트_연구보고서.docx)에서 확인할 수 있습니다.
 
-면접 발표용으로 정리한 자료는 [취업 포트폴리오 PPT](portfolio_ppt/Industrial_Safety_AI_Portfolio_이동현.pptx)에서 확인할 수 있습니다.
+보기 쉽게 정리한 자료는 [취업 포트폴리오 PPT](portfolio_ppt/Industrial_Safety_AI_Portfolio_이동현.pptx)에서 확인할 수 있습니다.
 
 ## 시스템 아키텍처
 
