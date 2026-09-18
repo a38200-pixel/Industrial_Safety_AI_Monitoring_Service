@@ -9,26 +9,45 @@
 
 </div>
 
+## 1. 프로젝트 개요
+
 산업 현장의 CCTV·웹캠 영상에서 **작업자, 안전모 착용, 안전모 미착용**을 탐지하고, 안전모 미착용 및 위험구역 침입 이벤트를 관제 화면에 기록하는 팀 프로젝트입니다.
 
 단순히 모델을 학습하는 데서 끝내지 않고, 카메라가 연결된 PC에서 추론한 결과를 중앙 서버로 전송하고 서버가 현장별 룰을 적용한 뒤 이벤트 로그·썸네일·영상 클립으로 남기는 전체 파이프라인을 구현했습니다.
 
----
+| 항목 | 내용 |
+| --- | --- |
+| **문제** | 다수의 CCTV를 사람이 지속적으로 확인하는 방식은 위험 상황의 즉시 발견과 증거 확보에 한계가 있음 |
+| **목표** | 엣지 PC에서 실시간 객체 탐지 → 중앙 서버 룰 판정 → 이벤트·썸네일·클립 저장 → 관제 화면 조회까지 하나의 End-to-End 모니터링 흐름으로 구현 |
+| **기간** | 프로젝트 수행 기간 추가 기재 필요 |
+| **역할** | 팀 프로젝트 — AI 모델 선정·배포 최적화, 서버 이벤트 탐지 룰 설계·구현, 전체 서비스 흐름 분석 |
 
-## 기술 스택
+### Tech Stack
 
 | 영역 | 기술 |
 | --- | --- |
-| AI / Computer Vision | YOLO26, Ultralytics, PyTorch, ONNX, TensorRT 11, OpenCV |
-| Backend | Python 3.12, FastAPI, Pydantic, Uvicorn |
-| Realtime / Network | REST API, WebSocket, MJPEG Stream |
-| Database / Storage | SQLite, JSON payload, MP4, JPG |
-| Desktop UI | Flutter, Dart, media_kit |
-| Target Environment | Windows 10/11, NVIDIA GPU, CUDA |
+| **AI / Computer Vision** | YOLO26, Ultralytics, PyTorch, ONNX, TensorRT 11, OpenCV |
+| **Backend** | Python 3.12, FastAPI, Pydantic, Uvicorn |
+| **Realtime / Network** | REST API, WebSocket, MJPEG Stream |
+| **Database / Storage** | SQLite, JSON payload, MP4, JPG |
+| **Desktop UI** | Flutter, Dart, media_kit |
+
+### 실행 환경 및 지원 범위
+
+| 영역 | 현재 지원 범위 |
+| --- | --- |
+| **AI Client** | Windows 10/11 환경에서 CCTV·Webcam 영상 입력 및 실시간 객체 탐지 |
+| **GPU Inference** | NVIDIA GPU + CUDA 기반 PyTorch / TensorRT 추론 |
+| **Central Server** | Python 3.12 + FastAPI 기반 REST API / WebSocket 서버 |
+| **Monitoring Viewer** | Flutter Windows Desktop 기반 다중 카메라 모니터링 및 이벤트 조회 |
+| **Database / Storage** | SQLite 기반 이벤트 데이터 저장, MP4 클립 및 JPG 썸네일 로컬 저장 |
+| **Network** | Client–Server–Viewer 간 REST API / WebSocket / MJPEG 통신 |
+| **Multi-PC** | 동일 네트워크에서 서버 PC의 IPv4 주소를 이용한 Client / Viewer 연결 지원 |
+| **Other Platforms** | Linux / macOS / Mobile 환경은 현재 별도 지원하지 않음 |
 
 ---
 
-## 프로젝트 핵심 성과
+## 2. 프로젝트 핵심 성과
 
 - YOLO26n/s/l과 Batch Size, Optimizer 조합을 비교하여 **YOLO26l Batch32 AdamW**를 최종 모델로 선정
 - 최종 모델에서 **mAP@50-95 0.4897, F1-score 0.7467, Recall 0.6650** 달성
@@ -40,7 +59,7 @@
 
 > FPS는 모델 추론 처리량이며, 전체 화면 FPS는 카메라 입력·네트워크·렌더링 환경에 따라 달라질 수 있습니다.
 
-## 나의 중점 학습 및 수행 내용
+## 3. 나의 중점 학습 및 수행 내용
 
 이 프로젝트에서 저는 **실시간 CCTV 환경에 적합한 객체 탐지 모델 선정·배포 최적화**와 **서버 이벤트 탐지 룰 설계 및 구현**을 중점적으로 수행했습니다.
 
@@ -67,7 +86,7 @@
 
 보기 쉽게 정리한 자료는 [취업 포트폴리오 PPT](portfolio_ppt/Industrial_Safety_AI_Portfolio_이동현.pptx)에서 확인할 수 있습니다.
 
-## 시스템 아키텍처
+## 4. 시스템 아키텍처
 
 <p align="center">
   <img src="docs/images/시스템_아키텍처.png" alt="Industrial Safety AI Monitoring Service 시스템 아키텍처" width="100%" />
@@ -83,13 +102,13 @@
 
 클라이언트는 객체 탐지만 담당하고 최종 이벤트는 서버가 판정합니다. 이 구조를 통해 모델 실행 환경과 운영 정책을 분리하고, 모든 클라이언트에 동일한 룰을 다시 배포하지 않아도 서버에서 카메라별 설정을 관리할 수 있습니다.
 
-## 시스템 화면
+## 5. 시스템 화면
 
 ### 최종 구현 뷰어 화면
 
 ![산업 안전 AI 모니터링 서비스 최종 구현 뷰어 화면](docs/images/final-viewer-ui.jpg)
 
-## AI 모델 선정 과정
+## 6. AI 모델 선정 과정
 
 ### 1. 모델 크기 비교
 
@@ -122,7 +141,7 @@ Batch32 AdamW는 특정 단일 지표의 최고값이 아니라, Recall과 F1-sc
 
 정확도가 높은 대형 모델을 선택하되 TensorRT FP16 최적화로 지연 시간을 보완하여, 작은 객체 탐지 성능과 실시간성을 함께 확보했습니다.
 
-## 이벤트 처리 흐름
+## 7. 이벤트 처리 흐름
 
 1. 클라이언트가 카메라 프레임을 읽고 `YES_Helmet`, `NO_Helmet`, `Person`을 탐지합니다.
 2. IoU와 객체 크기 기반 동적 거리로 `Person`을 추적해 프레임 간 객체 ID를 유지합니다.
@@ -133,7 +152,7 @@ Batch32 AdamW는 특정 단일 지표의 최고값이 아니라, Recall과 F1-sc
 7. 이벤트 종료 시 메모리 프레임 버퍼에서 발생 전 3초와 종료 후 1초 구간을 추출해 클립과 썸네일을 생성합니다.
 8. 뷰어는 WebSocket 갱신 신호와 REST API를 통해 최신 상태, 이벤트 로그, 클립을 표시합니다.
 
-## 주요 기능
+## 8. 주요 기능
 
 - 실시간 YOLO 객체 탐지 및 TensorRT GPU 추론
 - 다중 클라이언트의 카메라 소스 등록과 heartbeat 기반 연결 상태 관리
@@ -147,7 +166,7 @@ Batch32 AdamW는 특정 단일 지표의 최고값이 아니라, Recall과 F1-sc
 - 카메라 표시 이름, 룰 활성화 여부, ROI 중앙 관리
 
 
-## 프로젝트 구조
+## 9. 프로젝트 구조
 
 ```text
 .
@@ -172,16 +191,7 @@ Batch32 AdamW는 특정 단일 지표의 최고값이 아니라, Recall과 F1-sc
    └─ RUN_GUIDE.md
 ```
 
-## 실행 방법
-
-### 요구 환경
-
-- Windows 10/11
-- Python 3.12
-- Flutter SDK 및 Visual Studio C++ Build Tools
-- NVIDIA GPU와 호환 드라이버
-- CUDA 지원 PyTorch 및 TensorRT
-- Windows 개발자 모드
+## 10. 실행 방법
 
 Flutter Windows 빌드의 경로 길이 문제를 방지하기 위해 저장소를 `C:\safety_monitor_workspace`처럼 짧은 경로에 두는 것을 권장합니다.
 
@@ -219,7 +229,7 @@ http://<SERVER_IP>:8000
 
 자세한 설치, 빌드, 네트워크 설정과 오류 대응은 [RUN_GUIDE.md](safety_monitor_workspace/RUN_GUIDE.md)를 참고하세요.
 
-## 설계 문서
+## 11. 설계 문서
 
 - [Workspace 상세 설명](safety_monitor_workspace/README.md)
 - [실행 및 빌드 가이드](safety_monitor_workspace/RUN_GUIDE.md)
@@ -227,7 +237,7 @@ http://<SERVER_IP>:8000
 - [SQLite DB 스키마](safety_monitor_workspace/DB_SCHEMA.md)
 - [FastAPI 학습 정리](safety_monitor_workspace/docs/FASTAPI_PROJECT_SUMMARY.md)
 
-## 한계와 개선 방향
+## 12. 한계와 개선 방향
 
 - 야간, 역광, 우천·강설 등 환경 변화에 대한 데이터와 강건성 평가가 추가로 필요합니다.
 - 원거리 안전모 탐지를 위해 고해상도 입력, tiling inference, P2 detection head를 비교할 계획입니다.
@@ -235,7 +245,7 @@ http://<SERVER_IP>:8000
 - 현재 SQLite와 인메모리 프레임 버퍼 구조는 프로토타입에 적합하며, 운영 규모가 커질 경우 메시지 큐, 외부 DB, 객체 스토리지 도입을 검토할 수 있습니다.
 - pruning과 quantization을 적용해 저전력 임베디드 장치에서의 성능을 추가 검증할 계획입니다.
 
-## 프로젝트 정보
+## 13. 프로젝트 정보
 
 - 프로젝트 유형: ㈜하이버스 연계 미래내일 일경험 팀 프로젝트
 - 소속: 한국폴리텍대학 인공지능소프트웨어과
