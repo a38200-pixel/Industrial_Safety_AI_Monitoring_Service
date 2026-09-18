@@ -192,41 +192,9 @@ Batch32 AdamW는 특정 단일 지표의 최고값이 아니라, Recall과 F1-sc
 
 ## 10. 실행 방법
 
-Flutter Windows 빌드의 경로 길이 문제를 방지하기 위해 저장소를 `C:\safety_monitor_workspace`처럼 짧은 경로에 두는 것을 권장합니다.
-
-### 1. 환경 확인 및 의존성 설치
-
-```bat
-cd safety_monitor_workspace
-check_environment.bat
-install_dependencies.bat all
-build_viewer.bat
-build_client.bat
-```
-
-클라이언트 실행 전 아래 경로에 `best.pt` 또는 `best.engine`이 필요합니다.
-
-```text
-safety_monitor_client\embedded_backend\app\analysis\models\weights
-```
-
-### 2. 실행
-
-```bat
-run_server.bat
-run_viewer.bat
-run_client.bat
-```
-
-실행 순서는 **Server → Viewer → Client**입니다. 다른 PC에서 접속할 때는 `127.0.0.1` 대신 서버 PC의 IPv4 주소를 사용합니다.
-
-```text
-http://<SERVER_IP>:8000
-```
-
-서버 실행 후 `http://127.0.0.1:8000/docs`에서 Swagger UI로 API를 확인할 수 있습니다.
-
 자세한 설치, 빌드, 네트워크 설정과 오류 대응은 [RUN_GUIDE.md](safety_monitor_workspace/RUN_GUIDE.md)를 참고하세요.
+> Flutter Windows 빌드의 경로 길이 문제를 방지하기 위해 저장소를 `C:\safety_monitor_workspace`처럼 짧은 경로에 두는 것을 권장합니다.
+
 
 ## 11. 설계 문서
 
