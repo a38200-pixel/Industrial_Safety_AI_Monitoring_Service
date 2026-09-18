@@ -71,37 +71,9 @@
 
 ## 시스템 아키텍처
 
-```mermaid
-flowchart LR
-    subgraph Edge["AI Client · Edge PC"]
-        CAM["CCTV / Webcam"] --> CV["OpenCV Frame Capture"]
-        CV --> AI["YOLO26l + TensorRT"]
-        AI --> TRACK["Object Tracking"]
-        TRACK --> SEND["Preview · Detection · Heartbeat"]
-    end
-
-    subgraph Server["Central FastAPI Server"]
-        API["REST API / WebSocket"]
-        RULE["Event Rule Processor"]
-        DB[("SQLite")]
-        MEDIA["Frame Buffer<br/>Clip & Thumbnail"]
-        API --> RULE
-        RULE --> DB
-        RULE --> MEDIA
-    end
-
-    subgraph Viewer["Flutter Monitoring Viewer"]
-        LIVE["Live Monitoring"]
-        EVENT["Event Log / Clip"]
-        CONFIG["Rule / ROI Editor"]
-    end
-
-    SEND --> API
-    API --> LIVE
-    DB --> EVENT
-    MEDIA --> EVENT
-    CONFIG --> API
-```
+<p align="center">
+  <img src="docs/images/시스템_아키텍처.png" alt="Industrial Safety AI Monitoring Service 시스템 아키텍처" width="100%" />
+</p>
 
 ### 역할 분리
 
