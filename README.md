@@ -85,10 +85,6 @@
 
 ## 시스템 화면
 
-### 초기 예상 구현 화면
-
-![산업 안전 AI 모니터링 서비스 초기 예상 구현 화면](docs/images/initial-expected-ui.png)
-
 ### 최종 구현 뷰어 화면
 
 ![산업 안전 AI 모니터링 서비스 최종 구현 뷰어 화면](docs/images/final-viewer-ui.jpg)
